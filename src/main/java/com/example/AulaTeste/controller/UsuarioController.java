@@ -3,20 +3,13 @@ package com.example.AulaTeste.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
 import com.example.AulaTeste.errors.UsuarioJaExiste;
 import com.example.AulaTeste.model.UserModel;
 import com.example.AulaTeste.service.UsuarioService;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/usuarios")
@@ -44,8 +37,8 @@ public class UsuarioController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/buscar")
-    public ResponseEntity<UserModel> getUser(@RequestParam String email) {
+    @GetMapping("/{email}")
+    public ResponseEntity<UserModel> getUser(@PathVariable String email) {
         var user = usuarioService.buscarPorEmail(email);
         if (user == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -62,8 +55,8 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha incorreta");
     }
 
-    @DeleteMapping("/deletar")
-    public ResponseEntity<Void> deletUser(@RequestParam String email) {
+    @DeleteMapping("/{email}")
+    public ResponseEntity<Void> deletUser(@PathVariable String email) {
         usuarioService.deletarPorEmail(email);
         return ResponseEntity.ok().build();
     }

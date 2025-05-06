@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de Pet | EcoPet</title>
+    <!-- Usa o mesmo CSS do login -->
+    <link rel="stylesheet" href="Cadastro_Pet.css">
+</head>
+<body class="login-pet-page">
+<div class="container">
+    <div class="login-box">
+        <h2>Cadastro de Pet</h2>
+        <form id="cadastroPetForm">
+            <!-- Aqui o tutor informa o próprio ID (UUID) -->
+            <div class="textbox">
+                <input type="text" id="userId" placeholder="Seu User ID" required>
+            </div>
+            <div class="textbox">
+                <input type="text" id="nomePet" placeholder="Nome do Pet" required>
+            </div>
+            <div class="textbox">
+                <input type="text" id="tipoPet" placeholder="Espécie (ex: Cachorro)" required>
+            </div>
+            <div class="textbox">
+                <input type="text" id="racaPet" placeholder="Raça" required>
+            </div>
+            <div class="textbox">
+                <input type="number" id="idadePet" placeholder="Idade (em anos)" min="0" required>
+            </div>
+            <div class="textbox">
+                <input type="text" id="portePet" placeholder="Porte (Pequeno/Médio/Grande)" required>
+            </div>
+            <div class="textbox">
+                <textarea id="necessidadesPet" placeholder="Necessidades Especiais (opcional)" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn">Cadastrar Pet</button>
+            <p class="error-message" style="display:none; color:red;">Erro no cadastro. Verifique os dados.</p>
+        </form>
+        <p><a href="login.html">Voltar ao Login do Tutor</a></p>
+    </div>
+</div>
+
+<script src="cadastro-pet.js"></script>
+</body>
+</html>
