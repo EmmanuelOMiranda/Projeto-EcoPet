@@ -1,0 +1,77 @@
+<!-- reserva-confirmada.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Reserva Confirmada</title>
+    <link rel="stylesheet" href="reserva-confirmada.css" />
+</head>
+<body>
+<div class="reserva-confirmada-bg">
+    <header>
+        <nav>
+            <a href="index.html" class="back-home">← Voltar à Página Inicial</a>
+        </nav>
+    </header>
+
+    <section class="reserva-confirmada">
+        <h2>Reserva Confirmada!</h2>
+        <p><strong>Nome do dono:</strong> <span id="reserva-nomeTutor"></span></p>
+        <p><strong>Reserva nº:</strong> <span id="reserva-id"></span></p>
+        <p><strong>Nome do Pet:</strong> <span id="reserva-nome-pet"></span></p>
+        <p><strong>Raça:</strong> <span id="reserva-raca"></span></p>
+        <p><strong>Tipo:</strong> <span id="reserva-tipo"></span></p>
+        <p><strong>Data da Reserva:</strong> <span id="reserva-data"></span></p>
+        <p><strong>Observações:</strong> <span id="reserva-observacoes"></span></p>
+    </section>
+</div>
+
+<script>
+    // Função para pegar parâmetros da URL
+    function getParametroURL(nome) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(nome);
+    }
+
+    async function buscarReserva() {
+        const id = getParametroURL("id");
+
+        if (!id) {
+            alert("ID da reserva não encontrado.");
+            return;
+        }
+
+        try {
+            const resposta = await fetch(`http://localhost:8080/api/reservas/${id}`);
+            if (!resposta.ok) {
+                throw new Error("Reserva não encontrada.");
+            }
+
+            const reserva = await resposta.json();
+
+            // Preenche os dados na tela
+            document.getElementById("reserva-nomeTutor").textContent = reserva.nomeTutor;
+            document.getElementById("reserva-cpf").textContent = reserva.cpf;
+            document.getElementById("reserva-nomePet").textContent = reserva.nomePet;
+            document.getElementById("reserva-raca").textContent = reserva.raca;
+            document.getElementById("reserva-tipo").textContent = reserva.tipo;
+            document.getElementById("reserva-dataReserva").textContent = formatarData(reserva.dataReserva);
+            document.getElementById("reserva-observacoes").textContent = reserva.observacoes || "Nenhuma";
+        } catch (erro) {
+            console.error("Erro ao buscar reserva:", erro);
+            alert("Erro ao buscar dados da reserva.");
+        }
+    }
+
+    // Função para formatar data (caso venha como yyyy-MM-dd)
+    function formatarData(dataISO) {
+        if (!dataISO) return "";
+        const partes = dataISO.split("-");
+        return `${partes[2]}/${partes[1]}/${partes[0]}`;
+    }
+
+    buscarReserva();
+</script>
+</body>
+</html>

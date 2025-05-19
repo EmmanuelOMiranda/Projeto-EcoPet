@@ -1,0 +1,119 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-top {
+    background-color: #00a86b;
+    padding: 10px 20px;
+}
+
+.nav-top a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-section {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #00a86b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #007c50;
+}
+
+fieldset {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.reserva-bg {
+    background: url('imagens/cachorrinhos.jpg') center/cover no-repeat;
+    height: 120vh;
+    padding: 30px 10px;
+}
+
+.reserva-form {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reserva-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.reserva-form form input,
+.reserva-form form textarea {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.reserva-form form a {
+    justify-items: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reserva-form form a:hover {
+    background-color: #219150;
+}
+
+.back-home {
+    font-size: 16px;
+    text-decoration: none;
+    color: #ff6464;
+    margin-left: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}

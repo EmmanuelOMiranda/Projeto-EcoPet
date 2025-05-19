@@ -1,82 +1,71 @@
+<!-- Página Inicial (index.html) -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoPet - Bem-vindo</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Fonte e ícones opcionais -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Bem-vindo ao ECO PET Hotelzinho</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<!-- Cabeçalho -->
 <header class="top-header">
-  <div class="container header-container">
-    <div class="logo">
-      <img src="imagens/Logo.png" alt="EcoPet Logo">
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="imagens/Logo.png" alt="ECO PET Logo">
+      <h1>ECO PET</h1>
     </div>
-    <nav class="navigation">
-      <a href="index.html">Início</a>
-      <a href="products.html">Produtos</a>
-      <a href="reservas.html">Reserva</a>
-      <a href="login.html">Login Tutor</a>
-      <a href="cadastro_pet.html">Login Pet</a>
-    </nav>
-  </div>
+    <ul class="nav-links">
+      <li><a href="reserva.html">Fazer Reserva</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- Banner Principal -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Cuidando do seu pet com amor e sustentabilidade</h1>
-    <p>Produtos ecológicos e hotelzinho com carinho.</p>
-    <a href="reservas.html" class="btn">Faça sua reserva</a>
+<section class="hero-section">
+  <div class="hero-content">
+    <h2>Bem-vindo ao Hotelzinho ECO PET</h2>
+    <p>O lugar ideal para cuidar do seu melhor amigo com carinho e responsabilidade ambiental.</p>
+    <a href="reserva.html" class="cta-button">Reservar Agora</a>
   </div>
 </section>
 
-<!-- Seção Quem Somos -->
-<section class="about">
-  <div class="container">
-    <h2>Sobre a EcoPet</h2>
-    <p>Somos um petshop dedicado ao bem-estar dos animais e do planeta. Oferecemos produtos biodegradáveis, atendimento humanizado e um hotelzinho acolhedor para seu pet.</p>
-  </div>
-</section>
-
-<!-- Seção de Serviços -->
-<section class="services">
-  <div class="container">
-    <h2>Nossos Serviços</h2>
-    <div class="cards">
-      <div class="card">
-        <i class="fas fa-paw"></i>
-        <h3>Hotelzinho Pet</h3>
-        <p>Conforto e segurança enquanto você viaja.</p>
-      </div>
-      <div class="card">
-        <i class="fas fa-leaf"></i>
-        <h3>Produtos Sustentáveis</h3>
-        <p>Linhas ecológicas para saúde e higiene.</p>
-      </div>
-      <div class="card">
-        <i class="fas fa-shopping-cart"></i>
-        <h3>Loja Online</h3>
-        <p>Compre com praticidade e receba em casa.</p>
-      </div>
+<section class="benefits">
+  <h2>Por que escolher o ECO PET Hotelzinho?</h2>
+  <div class="card-container">
+    <div class="card">
+      <img src="imagens/conforto.png" alt="Ambiente confortável">
+      <h3>Conforto</h3>
+      <p>Espaços climatizados e preparados para garantir o bem-estar do seu pet.</p>
+    </div>
+    <div class="card">
+      <img src="imagens/cuidados.png" alt="Cuidados profissionais">
+      <h3>Cuidados Profissionais</h3>
+      <p>Equipe treinada e apaixonada por animais cuidando com dedicação e carinho.</p>
+    </div>
+    <div class="card">
+      <img src="imagens/ecologia.png" alt="Sustentabilidade">
+      <h3>Sustentabilidade</h3>
+      <p>Utilizamos produtos biodegradáveis e práticas que respeitam o meio ambiente.</p>
     </div>
   </div>
 </section>
-
-<!-- Rodapé -->
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2025 EcoPet - Todos os direitos reservados</p>
-    <div class="social">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
+<section class="produtos-section">
+  <h2 class="fade-in">Nossos Produtos</h2>
+  <div class="produtos-container">
+    <div class="produto-card slide-up">
+      <img src="imagens/produto1.jpg" alt="Produto 1" />
+      <p>Kit Premium R$ 79,90</p>
+    </div>
+    <div class="produto-card slide-up">
+      <img src="imagens/produto2.jpg" alt="Produto 2" />
+      <p>Mix Shampoo Veg R$ 89,90</p>
     </div>
   </div>
+  <a href="https://wa.me/5513996986651" target="_blank" class="whatsapp-button pulse">
+    Fale conosco pelo WhatsApp
+  </a>
+</section>
+<footer>
+  <p>&copy; 2025 ECO PET Hotelzinho. Todos os direitos reservados.</p>
 </footer>
 </body>
 </html>
-<script src="JavaScript.js"></script>
