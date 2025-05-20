@@ -1,21 +1,69 @@
+/* Reset e fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  line-height: 1.6;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Modo escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .card,
+body.dark-mode .produto-card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+body.dark-mode .hero-section {
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .navbar,
+body.dark-mode footer {
+  background-color: #000;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #1abc9c;
+}
+
+/* Botão de dark mode */
+.dark-mode-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Navbar */
 .top-header {
-  background-color: #fff;
-  height: 70px;
-  padding: 10px 5px;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #2c3e50;
+  padding: 1rem 2rem;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1280px;
-  width: 100%;
-  margin: auto;
-  height: 65px;
-  padding:  10px;
+  color: white;
 }
 
 .logo-container {
@@ -24,255 +72,189 @@
 }
 
 .logo-container img {
-  width: 60px;
+  height: 40px;
   margin-right: 10px;
-}
-
-.logo-container h1 {
-  font-size: 24px;
-  color: #333;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1rem;
 }
 
-.nav-links li a {
+.nav-links a {
+  color: white;
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  font-weight: 600;
 }
 
+.nav-links a:hover {
+  color: #1abc9c;
+}
+
+/* Hero */
 .hero-section {
-  background: url('imagens/cachorrinhos.jpg') center/cover no-repeat;
-  height: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: url("imagens/cachorrinhos.jpg") center/cover no-repeat;
+  padding: 6rem 2rem;
   text-align: center;
-  position: relative;
+  color: white;
+  background-attachment: fixed;
 }
 
 .hero-content {
-  background-color: rgba(255, 255, 255, 0.78);
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.29);
+  animation: fadeIn 2s ease forwards;
 }
 
 .hero-content h2 {
-  font-size: 36px;
-  color: #2c3e50;
-}
-
-.hero-content p {
-  font-size: 18px;
-  color: #555;
-  margin: 15px 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .cta-button {
-  padding: 12px 24px;
-  background-color: #27ae60;
-  color: #fff;
+  background-color: #1abc9c;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
   text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
+  display: inline-block;
+  margin-top: 4rem;
 }
 
 .cta-button:hover {
-  background-color: #219150;
-}
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
+  background-color: #16a085;
 }
 
-.hero {
-  background: url('imagens/cachorrinhos.jpg') center/cover no-repeat;
-  height: 1500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
-}
-
-.navbar .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.navbar .btn-nav {
-  background-color: #00a86b;
-  color: white;
-  padding: 10px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.navbar .btn-nav:hover {
-  background-color: #007c50;
-}
-
-.hero-content {
-  text-align: center;
-  padding: 0 20px 60px;
-}
-
-.hero-content h2 {
-  font-size: 3em;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.cta-button {
-  background-color: #00a86b;
-  color: white;
-  padding: 15px 30px;
-  font-size: 1.1em;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #007c50;
-}
-
+/* Benefícios */
 .benefits {
-  padding: 20px 10px;
+  padding: 4rem 2rem;
   text-align: center;
+  animation: slideUp 1s ease forwards;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
-  gap: 80px;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .card {
   background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 9px 10px rgba(0,0,0,0.1);
-  padding: 20px;
-  max-width: 280px;
-  width: 90%;
-  text-align: center;
-  transition: transform 0.2s;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .card img {
-  border-radius: 20px;
-  width: 200px;
-  height: 150px;
-  margin-bottom: 15px;
+  width: 60px;
+  margin-bottom: 1rem;
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
+/* Produtos */
 .produtos-section {
-  padding: 60px 20px;
+  padding: 4rem 2rem;
+  background-color: #ecf0f1;
   text-align: center;
-  background-color: #fefefe;
-}
-
-.produtos-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  animation: slideUp 1.3s ease forwards;
 }
 
 .produtos-container {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 2rem;
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .produto-card {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 250px;
-  transition: transform 0.3s ease;
-}
-
-.produto-card:hover {
-  transform: scale(1.05);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  max-width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
 .produto-card img {
   width: 100%;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  border-radius: 0.5rem;
+}
+
+.produto-card p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+/* Seção redes sociais */
+.social-buttons {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.whatsapp-button,
+.instagram-button {
+  display: inline-block;
+  margin: 1rem 1rem;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  animation: pulse 1.8s infinite;
 }
 
 .whatsapp-button {
-  display: inline-block;
-  margin-top: 30px;
   background-color: #25d366;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
 }
 
-.whatsapp-button:hover {
-  background-color: #20b954;
+.instagram-button {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
 }
 
 /* Animações */
-.fade-in {
-  animation: fadeIn 1.2s ease-in;
-}
-
-.slide-up {
-  animation: slideUp 1s ease forwards;
-  opacity: 0;
-}
-
-.pulse {
-  animation: pulse 1.5s infinite;
-}
-
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
+  0% { transform: scale(1); }
   50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card-container, .produtos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
 }
