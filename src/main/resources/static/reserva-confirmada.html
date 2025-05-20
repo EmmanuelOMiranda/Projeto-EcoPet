@@ -1,4 +1,3 @@
-<!-- reserva-confirmada.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,51 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Reserva Confirmada</title>
     <link rel="stylesheet" href="reserva-confirmada.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div class="reserva-confirmada-bg">
-    <header>
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <h1 class="logo">EcoPet</h1>
         <nav>
-            <a href="index.html" class="back-home">← Voltar à Página Inicial</a>
+            <a href="index.html">🏠 Início</a>
+            <a href="#">📅 Minhas Reservas</a>
+            <a href="#">👤 Perfil</a>
         </nav>
-    </header>
+    </aside>
 
-    <section class="reserva-confirmada">
-        <h2>Reserva Confirmada!</h2>
-        <p><strong>Nome do dono:</strong> <span id="reserva-nomeTutor"></span></p>
-        <p><strong>Reserva nº:</strong> <span id="reserva-id"></span></p>
-        <p><strong>Nome do Pet:</strong> <span id="reserva-nome-pet"></span></p>
-        <p><strong>Raça:</strong> <span id="reserva-raca"></span></p>
-        <p><strong>Tipo:</strong> <span id="reserva-tipo"></span></p>
-        <p><strong>Data da Reserva:</strong> <span id="reserva-data"></span></p>
-        <p><strong>Observações:</strong> <span id="reserva-observacoes"></span></p>
-    </section>
+    <main class="main-content">
+        <header class="dashboard-header">
+            <h2>✅ Reserva Confirmada</h2>
+            <p class="sub">Detalhes da sua reserva no Hotelzinho Pet</p>
+        </header>
+
+        <section class="card">
+            <div class="info-row"><strong>Reserva nº:</strong> <span id="reserva-id"></span></div>
+            <div class="info-row"><strong>Nome do Dono:</strong> <span id="reserva-nomeTutor"></span></div>
+            <div class="info-row"><strong>CPF:</strong> <span id="reserva-cpf"></span></div>
+            <div class="info-row"><strong>Nome do Pet:</strong> <span id="reserva-nomePet"></span></div>
+            <div class="info-row"><strong>Raça:</strong> <span id="reserva-raca"></span></div>
+            <div class="info-row"><strong>Tipo:</strong> <span id="reserva-tipo"></span></div>
+            <div class="info-row"><strong>Data da Reserva:</strong> <span id="reserva-dataReserva"></span></div>
+            <div class="info-row"><strong>Observações:</strong> <span id="reserva-observacoes"></span></div>
+        </section>
+    </main>
 </div>
 
 <script>
-    // Função para pegar parâmetros da URL
     function getParametroURL(nome) {
         const url = new URL(window.location.href);
         return url.searchParams.get(nome);
     }
 
+    function formatarData(dataISO) {
+        const data = new Date(dataISO);
+        return data.toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        });
+    }
+
     async function buscarReserva() {
         const id = getParametroURL("id");
-
-        if (!id) {
-            alert("ID da reserva não encontrado.");
-            return;
-        }
+        if (!id) return;
 
         try {
-            const resposta = await fetch(`http://localhost:8080/api/reservas/${id}`);
-            if (!resposta.ok) {
-                throw new Error("Reserva não encontrada.");
-            }
+            const response = await fetch(`http://localhost:8080/api/reservas/${id}`);
+            const reserva = await response.json();
 
-            const reserva = await resposta.json();
-
-            // Preenche os dados na tela
+            document.getElementById("reserva-id").textContent = reserva.id;
             document.getElementById("reserva-nomeTutor").textContent = reserva.nomeTutor;
             document.getElementById("reserva-cpf").textContent = reserva.cpf;
             document.getElementById("reserva-nomePet").textContent = reserva.nomePet;
@@ -60,15 +70,7 @@
             document.getElementById("reserva-observacoes").textContent = reserva.observacoes || "Nenhuma";
         } catch (erro) {
             console.error("Erro ao buscar reserva:", erro);
-            alert("Erro ao buscar dados da reserva.");
         }
-    }
-
-    // Função para formatar data (caso venha como yyyy-MM-dd)
-    function formatarData(dataISO) {
-        if (!dataISO) return "";
-        const partes = dataISO.split("-");
-        return `${partes[2]}/${partes[1]}/${partes[0]}`;
     }
 
     buscarReserva();

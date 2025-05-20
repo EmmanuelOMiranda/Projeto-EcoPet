@@ -79,7 +79,7 @@
 
             const reservaCriada = await resposta.json();
             console.log("Reserva criada:", reservaCriada); // <--- ajuda a depurar
-            window.location.href = `./reserva-confirmada.html`;
+            window.location.href = `./reserva-confirmada.html?id=${reservaCriada.id}`;
         } catch (erro) {
             console.error("Erro ao enviar reserva:", erro);
             alert("Erro ao confirmar reserva.");

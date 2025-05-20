@@ -1,86 +1,122 @@
+/* Fonte moderna */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Inter', sans-serif;
+    background: #f5f7fa;
+    color: #333;
 }
 
-.confirmacao-bg {
-    background: url('imagens/cachorrinhos.jpg') center/cover no-repeat;
-    height: 100vh;
-    padding: 40px 10px;
-}
-.info-reserva {
-    background-color: #eefdf6;
-    border: 2px solid #00a86b;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    text-align: left;
-    font-size: 1em;
-    color: #2d2d2d;
-}
-
-header nav {
-    padding: 10px 20px;
-}
-
-.voltar-home {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    background-color: #00a86b;
-    padding: 10px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.voltar-home:hover {
-    background-color: #007c50;
-}
-
-.mensagem-confirmacao {
+/* Layout da dashboard */
+.dashboard-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+    min-height: 100vh;
 }
 
-.caixa-confirmacao {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 20px;
+/* Sidebar */
+.sidebar {
+    background-color: #1e293b;
+    color: #fff;
+    width: 220px;
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
 }
 
-.caixa-confirmacao h2 {
-    color: #2c3e50;
-    margin-top: 20px;
-}
-
-.caixa-confirmacao p {
-    color: #555;
-    font-size: 1.1em;
-    margin-top: 10px;
-}
-
-.icone-confirmado {
-    width: 80px;
-    height: 80px;
-}
-
-.btn-voltar {
-    display: inline-block;
-    margin-top: 30px;
-    background-color: #00a86b;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
+.sidebar nav a {
+    display: block;
+    color: #cbd5e1;
     text-decoration: none;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
 }
 
-.btn-voltar:hover {
-    background-color: #007c50;
+.sidebar nav a:hover {
+    background-color: #334155;
+    color: #fff;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    padding: 3rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header da dashboard */
+.dashboard-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+.dashboard-header .sub {
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+/* Cartão de dados */
+.card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    animation: slideUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Linhas de informação */
+.info-row {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-row strong {
+    color: #1e293b;
+    margin-right: 0.5rem;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
 }
