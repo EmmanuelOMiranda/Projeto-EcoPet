@@ -14,7 +14,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: #1e293b;
+    background-color: #1d7e3b;
     color: #fff;
     width: 220px;
     padding: 2rem 1rem;
@@ -24,16 +24,29 @@ body {
     gap: 2rem;
 }
 
-.sidebar .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.01rem;
     margin-bottom: 2rem;
 }
 
+.logoe-copet {
+    height: 100px; /* ou ajuste como preferir */
+    margin: 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+
 .sidebar nav a {
     display: block;
-    color: #cbd5e1;
+    color: #ffffff;
     text-decoration: none;
     padding: 0.8rem 1rem;
     border-radius: 8px;
@@ -41,7 +54,7 @@ body {
 }
 
 .sidebar nav a:hover {
-    background-color: #334155;
+    background-color: rgba(61, 182, 61, 0.66);
     color: #fff;
 }
 
