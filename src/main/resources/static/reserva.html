@@ -50,6 +50,9 @@
             <label for="dataReserva">Data da Reserva</label>
             <input type="date" id="dataReserva" required />
 
+            <label for="horarioReserva">Horário da Reserva</label>
+            <input type="time" id="horarioReserva" required />
+
             <label for="observacoes">Observações</label>
             <textarea id="observacoes" rows="4" placeholder="Observações"></textarea>
 
@@ -71,6 +74,7 @@
             raca: document.getElementById("raca").value,
             tipo: document.getElementById("tipo").value,
             dataReserva: document.getElementById("dataReserva").value,
+            horarioReserva: document.getElementById("horarioReserva").value,
             observacoes: document.getElementById("observacoes").value,
         };
 

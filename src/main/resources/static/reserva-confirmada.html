@@ -23,7 +23,7 @@
 
     <main class="main-content">
         <header class="dashboard-header">
-            <h2>✅ Reserva Confirmada</h2>
+            <h2>✅ Horário Confirmado</h2>
             <p class="sub">Detalhes da sua reserva no Studio ECOPET</p>
         </header>
 
@@ -35,6 +35,7 @@
             <div class="info-row"><strong>Raça:</strong> <span id="reserva-raca"></span></div>
             <div class="info-row"><strong>Tipo:</strong> <span id="reserva-tipo"></span></div>
             <div class="info-row"><strong>Data da Reserva:</strong> <span id="reserva-dataReserva"></span></div>
+            <div class="info-row"><strong>Horário:</strong> <span id="reserva-horarioReserva"></span></div>
             <div class="info-row"><strong>Observações:</strong> <span id="reserva-observacoes"></span></div>
         </section>
     </main>
@@ -70,6 +71,7 @@
             document.getElementById("reserva-raca").textContent = reserva.raca;
             document.getElementById("reserva-tipo").textContent = reserva.tipo;
             document.getElementById("reserva-dataReserva").textContent = formatarData(reserva.dataReserva);
+            document.getElementById("reserva-horarioReserva").textContent = reserva.horarioReserva || "Não informado";
             document.getElementById("reserva-observacoes").textContent = reserva.observacoes || "Nenhuma";
         } catch (erro) {
             console.error("Erro ao buscar reserva:", erro);
